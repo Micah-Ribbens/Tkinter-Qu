@@ -31,6 +31,7 @@ class Grid(Dimensions):
         """
 
         super().__init__(*dimensions.get_values())
+        self.dimensions = dimensions
         self.rows, self.columns = rows, columns
         self.goes_top_to_bottom, self.goes_left_to_right = goes_top_to_bottom, goes_left_to_right
 
