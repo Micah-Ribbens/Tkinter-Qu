@@ -1,6 +1,6 @@
 [project]
 name = "tkinter_qu"
-version = "1.0.2"
+version = "1.0.3"
 authors = [
     { name="Micah Ribbens", email="mdribbens22@outlook.com" },
 ]

@@ -12,6 +12,6 @@ class Button(TkButton, Component):
         super().__init__(window_type, text=text, font=font, bg=background_color, fg=text_color)
 
     def set_command(self, command):
-        """Sets the command that is called when the button is clicked"""
+        """Sets the command that is called when the button is clicked (uses the one parameter tkinter config method)"""
 
-        self.config(command=command)
+        self.configure(command=command)

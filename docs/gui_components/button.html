@@ -40,9 +40,9 @@ class Button(TkButton, Component):
         super().__init__(window_type, text=text, font=font, bg=background_color, fg=text_color)
 
     def set_command(self, command):
-        &#34;&#34;&#34;Sets the command that is called when the button is clicked&#34;&#34;&#34;
+        &#34;&#34;&#34;Sets the command that is called when the button is clicked (uses the one parameter tkinter config method)&#34;&#34;&#34;
 
-        self.config(command=command)</code></pre>
+        self.configure(command=command)</code></pre>
 </details>
 </section>
 <section>
@@ -74,9 +74,9 @@ class Button(TkButton, Component):
         super().__init__(window_type, text=text, font=font, bg=background_color, fg=text_color)
 
     def set_command(self, command):
-        &#34;&#34;&#34;Sets the command that is called when the button is clicked&#34;&#34;&#34;
+        &#34;&#34;&#34;Sets the command that is called when the button is clicked (uses the one parameter tkinter config method)&#34;&#34;&#34;
 
-        self.config(command=command)</code></pre>
+        self.configure(command=command)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -96,15 +96,15 @@ class Button(TkButton, Component):
 <span>def <span class="ident">set_command</span></span>(<span>self, command)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Sets the command that is called when the button is clicked</p></div>
+<div class="desc"><p>Sets the command that is called when the button is clicked (uses the one parameter tkinter config method)</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def set_command(self, command):
-    &#34;&#34;&#34;Sets the command that is called when the button is clicked&#34;&#34;&#34;
+    &#34;&#34;&#34;Sets the command that is called when the button is clicked (uses the one parameter tkinter config method)&#34;&#34;&#34;
 
-    self.config(command=command)</code></pre>
+    self.configure(command=command)</code></pre>
 </details>
 </dd>
 </dl>
