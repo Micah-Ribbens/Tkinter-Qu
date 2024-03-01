@@ -31,8 +31,10 @@ from tkinter import OptionMenu, StringVar
 
 from tkinter_qu.base.important_variables import WINDOW
 
+from tkinter_qu.gui_components.component import Component
 
-class DropDownMenu(OptionMenu):
+
+class DropDownMenu(OptionMenu, Component):
     &#34;&#34;&#34; Extends the tkinter&#39;s class OptionMenu and it shows a list of possible values once it is clicked. It adds the
         functionality of setting the selected value of the OptionMenu programmatically, which the regular OptionMenu does not have&#34;&#34;&#34;
 
@@ -116,7 +118,7 @@ functionality of setting the selected value of the OptionMenu programmatically, 
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class DropDownMenu(OptionMenu):
+<pre><code class="python">class DropDownMenu(OptionMenu, Component):
     &#34;&#34;&#34; Extends the tkinter&#39;s class OptionMenu and it shows a list of possible values once it is clicked. It adds the
         functionality of setting the selected value of the OptionMenu programmatically, which the regular OptionMenu does not have&#34;&#34;&#34;
 
@@ -182,12 +184,14 @@ functionality of setting the selected value of the OptionMenu programmatically, 
 <ul class="hlist">
 <li>tkinter.OptionMenu</li>
 <li>tkinter.Menubutton</li>
+<li><a title="tkinter_qu.gui_components.component.Component" href="component.html#tkinter_qu.gui_components.component.Component">Component</a></li>
 <li>tkinter.Widget</li>
 <li>tkinter.BaseWidget</li>
 <li>tkinter.Misc</li>
 <li>tkinter.Pack</li>
 <li>tkinter.Place</li>
 <li>tkinter.Grid</li>
+<li><a title="tkinter_qu.gui_components.dimensions.Dimensions" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions">Dimensions</a></li>
 </ul>
 <h3>Class variables</h3>
 <dl>
@@ -311,6 +315,23 @@ functionality of setting the selected value of the OptionMenu programmatically, 
 </details>
 </dd>
 </dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="tkinter_qu.gui_components.component.Component" href="component.html#tkinter_qu.gui_components.component.Component">Component</a></b></code>:
+<ul class="hlist">
+<li><code><a title="tkinter_qu.gui_components.component.Component.bottom_edge" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.bottom_edge">bottom_edge</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.get_values" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.get_values">get_values</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.hide" href="component.html#tkinter_qu.gui_components.component.Component.hide">hide</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.horizontal_midpoint" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.horizontal_midpoint">horizontal_midpoint</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.number_set_dimensions" href="component.html#tkinter_qu.gui_components.component.Component.number_set_dimensions">number_set_dimensions</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.percentage_set_dimensions" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.right_edge" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.right_edge">right_edge</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.set_dimensions_within_component" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.set_dimensions_within_component">set_dimensions_within_component</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.show" href="component.html#tkinter_qu.gui_components.component.Component.show">show</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.vertical_midpoint" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.vertical_midpoint">vertical_midpoint</a></code></li>
+</ul>
+</li>
+</ul>
 </dd>
 </dl>
 </section>

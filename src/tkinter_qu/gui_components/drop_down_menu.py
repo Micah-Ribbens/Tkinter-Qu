@@ -3,8 +3,10 @@ from tkinter import OptionMenu, StringVar
 
 from tkinter_qu.base.important_variables import WINDOW
 
+from tkinter_qu.gui_components.component import Component
 
-class DropDownMenu(OptionMenu):
+
+class DropDownMenu(OptionMenu, Component):
     """ Extends the tkinter's class OptionMenu and it shows a list of possible values once it is clicked. It adds the
         functionality of setting the selected value of the OptionMenu programmatically, which the regular OptionMenu does not have"""
 
