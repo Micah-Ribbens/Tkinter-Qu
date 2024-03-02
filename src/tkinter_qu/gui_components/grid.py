@@ -10,7 +10,6 @@ class Grid(Dimensions):
 
     rows = None
     columns = None
-    dimensions = None
     length_buffer = get_measurement(SCREEN_LENGTH, 1)
     height_buffer = get_measurement(SCREEN_HEIGHT, 1)
     goes_top_to_bottom = True
@@ -31,7 +30,6 @@ class Grid(Dimensions):
         """
 
         super().__init__(*dimensions.get_values())
-        self.dimensions = dimensions
         self.rows, self.columns = rows, columns
         self.goes_top_to_bottom, self.goes_left_to_right = goes_top_to_bottom, goes_left_to_right
 
@@ -58,11 +56,11 @@ class Grid(Dimensions):
         if columns is None:
             columns = self.get_grid_dimension(rows, number_of_items)
 
-        item_height = self.get_item_dimension(self.dimensions.height, rows, item_max_height, self.height_buffer)
-        item_length = self.get_item_dimension(self.dimensions.length, columns, item_max_length, self.length_buffer)
+        item_height = self.get_item_dimension(self.height, rows, item_max_height, self.height_buffer)
+        item_length = self.get_item_dimension(self.length, columns, item_max_length, self.length_buffer)
 
-        base_left_edge = self.dimensions.left_edge if self.goes_left_to_right else self.dimensions.right_edge - item_length
-        base_top_edge = self.dimensions.top_edge if self.goes_top_to_bottom else self.dimensions.bottom_edge - item_height
+        base_left_edge = self.left_edge if self.goes_left_to_right else self.right_edge - item_length
+        base_top_edge = self.top_edge if self.goes_top_to_bottom else self.bottom_edge - item_height
 
         for x in range(number_of_items):
             column_number = x % columns

@@ -38,7 +38,6 @@ class Grid(Dimensions):
 
     rows = None
     columns = None
-    dimensions = None
     length_buffer = get_measurement(SCREEN_LENGTH, 1)
     height_buffer = get_measurement(SCREEN_HEIGHT, 1)
     goes_top_to_bottom = True
@@ -59,7 +58,6 @@ class Grid(Dimensions):
         &#34;&#34;&#34;
 
         super().__init__(*dimensions.get_values())
-        self.dimensions = dimensions
         self.rows, self.columns = rows, columns
         self.goes_top_to_bottom, self.goes_left_to_right = goes_top_to_bottom, goes_left_to_right
 
@@ -86,11 +84,11 @@ class Grid(Dimensions):
         if columns is None:
             columns = self.get_grid_dimension(rows, number_of_items)
 
-        item_height = self.get_item_dimension(self.dimensions.height, rows, item_max_height, self.height_buffer)
-        item_length = self.get_item_dimension(self.dimensions.length, columns, item_max_length, self.length_buffer)
+        item_height = self.get_item_dimension(self.height, rows, item_max_height, self.height_buffer)
+        item_length = self.get_item_dimension(self.length, columns, item_max_length, self.length_buffer)
 
-        base_left_edge = self.dimensions.left_edge if self.goes_left_to_right else self.dimensions.right_edge - item_length
-        base_top_edge = self.dimensions.top_edge if self.goes_top_to_bottom else self.dimensions.bottom_edge - item_height
+        base_left_edge = self.left_edge if self.goes_left_to_right else self.right_edge - item_length
+        base_top_edge = self.top_edge if self.goes_top_to_bottom else self.bottom_edge - item_height
 
         for x in range(number_of_items):
             column_number = x % columns
@@ -197,7 +195,6 @@ class Grid(Dimensions):
 
     rows = None
     columns = None
-    dimensions = None
     length_buffer = get_measurement(SCREEN_LENGTH, 1)
     height_buffer = get_measurement(SCREEN_HEIGHT, 1)
     goes_top_to_bottom = True
@@ -218,7 +215,6 @@ class Grid(Dimensions):
         &#34;&#34;&#34;
 
         super().__init__(*dimensions.get_values())
-        self.dimensions = dimensions
         self.rows, self.columns = rows, columns
         self.goes_top_to_bottom, self.goes_left_to_right = goes_top_to_bottom, goes_left_to_right
 
@@ -245,11 +241,11 @@ class Grid(Dimensions):
         if columns is None:
             columns = self.get_grid_dimension(rows, number_of_items)
 
-        item_height = self.get_item_dimension(self.dimensions.height, rows, item_max_height, self.height_buffer)
-        item_length = self.get_item_dimension(self.dimensions.length, columns, item_max_length, self.length_buffer)
+        item_height = self.get_item_dimension(self.height, rows, item_max_height, self.height_buffer)
+        item_length = self.get_item_dimension(self.length, columns, item_max_length, self.length_buffer)
 
-        base_left_edge = self.dimensions.left_edge if self.goes_left_to_right else self.dimensions.right_edge - item_length
-        base_top_edge = self.dimensions.top_edge if self.goes_top_to_bottom else self.dimensions.bottom_edge - item_height
+        base_left_edge = self.left_edge if self.goes_left_to_right else self.right_edge - item_length
+        base_top_edge = self.top_edge if self.goes_top_to_bottom else self.bottom_edge - item_height
 
         for x in range(number_of_items):
             column_number = x % columns
@@ -322,10 +318,6 @@ class Grid(Dimensions):
 <h3>Class variables</h3>
 <dl>
 <dt id="tkinter_qu.gui_components.grid.Grid.columns"><code class="name">var <span class="ident">columns</span></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="tkinter_qu.gui_components.grid.Grid.dimensions"><code class="name">var <span class="ident">dimensions</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -519,11 +511,11 @@ class Grid(Dimensions):
     if columns is None:
         columns = self.get_grid_dimension(rows, number_of_items)
 
-    item_height = self.get_item_dimension(self.dimensions.height, rows, item_max_height, self.height_buffer)
-    item_length = self.get_item_dimension(self.dimensions.length, columns, item_max_length, self.length_buffer)
+    item_height = self.get_item_dimension(self.height, rows, item_max_height, self.height_buffer)
+    item_length = self.get_item_dimension(self.length, columns, item_max_length, self.length_buffer)
 
-    base_left_edge = self.dimensions.left_edge if self.goes_left_to_right else self.dimensions.right_edge - item_length
-    base_top_edge = self.dimensions.top_edge if self.goes_top_to_bottom else self.dimensions.bottom_edge - item_height
+    base_left_edge = self.left_edge if self.goes_left_to_right else self.right_edge - item_length
+    base_top_edge = self.top_edge if self.goes_top_to_bottom else self.bottom_edge - item_height
 
     for x in range(number_of_items):
         column_number = x % columns
@@ -578,7 +570,6 @@ class Grid(Dimensions):
 <h4><code><a title="tkinter_qu.gui_components.grid.Grid" href="#tkinter_qu.gui_components.grid.Grid">Grid</a></code></h4>
 <ul class="">
 <li><code><a title="tkinter_qu.gui_components.grid.Grid.columns" href="#tkinter_qu.gui_components.grid.Grid.columns">columns</a></code></li>
-<li><code><a title="tkinter_qu.gui_components.grid.Grid.dimensions" href="#tkinter_qu.gui_components.grid.Grid.dimensions">dimensions</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.grid.Grid.get_dimension_change" href="#tkinter_qu.gui_components.grid.Grid.get_dimension_change">get_dimension_change</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.grid.Grid.get_grid_dimension" href="#tkinter_qu.gui_components.grid.Grid.get_grid_dimension">get_grid_dimension</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.grid.Grid.get_item_dimension" href="#tkinter_qu.gui_components.grid.Grid.get_item_dimension">get_item_dimension</a></code></li>

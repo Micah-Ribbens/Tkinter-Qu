@@ -1,3 +1,4 @@
+from tkinter_qu.base.important_variables import SCREEN_LENGTH, SCREEN_HEIGHT
 from tkinter_qu.gui_components.dimensions import Dimensions
 from tkinter_qu.gui_components.grid_items import GridItems, GridType
 from tkinter_qu.gui_components.input_field import InputField
@@ -17,6 +18,8 @@ class TitledInputField(Dimensions):
                  error_message_function=lambda text: None, input_field_is_editable=True):
 
         """Initializes the object"""
+
+        super().__init__(0, 0, 0, 0)
 
         self.title_field = InputField(window_type, font, title_field_text, is_editable=False,
                                       background_color=title_field_background_color, text_color=title_field_text_color)
@@ -60,4 +63,3 @@ class TitledInputField(Dimensions):
         """Places all the items at that location in a grid format"""
 
         self.grid_items.number_set_dimensions(left_edge, top_edge, length, height)
-
