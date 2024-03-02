@@ -12,6 +12,7 @@ class TitledInputField(Dimensions):
     title_field = None
     input_field = None
     error_message_function = None
+    grid_items = None
 
     def __init__(self, window_type, font, input_field_default_text, title_field_text, title_field_background_color=black,
                  title_field_text_color=white, input_field_background_color=white, input_field_text_color=black,
@@ -19,15 +20,20 @@ class TitledInputField(Dimensions):
 
         """Initializes the object"""
 
-        super().__init__(0, 0, 0, 0)
-
+        # These have to go here, so the number_set_dimensions method is not called before the object is initialized
         self.title_field = InputField(window_type, font, title_field_text, is_editable=False,
                                       background_color=title_field_background_color, text_color=title_field_text_color)
+
         self.input_field = InputField(window_type, font, input_field_default_text, is_editable=input_field_is_editable,
                                       background_color=input_field_background_color, text_color=input_field_text_color)
 
-        self.error_message_function = error_message_function
         self.grid_items = GridItems([self.title_field, self.input_field], GridType.VERTICAL)
+
+        super().__init__(0, 0, 0, 0)
+
+
+
+        self.error_message_function = error_message_function
 
     def set_text(self, text):
         """Sets the text of the InputField to the value provided if the InputField is editable"""
