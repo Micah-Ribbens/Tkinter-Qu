@@ -16,7 +16,7 @@ class TitledInputField(Dimensions):
 
     def __init__(self, window_type, font, input_field_default_text, title_field_text, title_field_background_color=black,
                  title_field_text_color=white, input_field_background_color=white, input_field_text_color=black,
-                 error_message_function=lambda text: None, input_field_is_editable=True):
+                 error_message_function=lambda text: None, input_field_is_editable=True, grid_type=GridType.VERTICAL):
 
         """Initializes the object"""
 

@@ -44,7 +44,7 @@ class TitledInputField(Dimensions):
 
     def __init__(self, window_type, font, input_field_default_text, title_field_text, title_field_background_color=black,
                  title_field_text_color=white, input_field_background_color=white, input_field_text_color=black,
-                 error_message_function=lambda text: None, input_field_is_editable=True):
+                 error_message_function=lambda text: None, input_field_is_editable=True, grid_type=GridType.VERTICAL):
 
         &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
 
@@ -110,7 +110,7 @@ class TitledInputField(Dimensions):
 <dl>
 <dt id="tkinter_qu.gui_components.titled_input_field.TitledInputField"><code class="flex name class">
 <span>class <span class="ident">TitledInputField</span></span>
-<span>(</span><span>window_type, font, input_field_default_text, title_field_text, title_field_background_color='#000000', title_field_text_color='#ffffff', input_field_background_color='#ffffff', input_field_text_color='#000000', error_message_function=&lt;function TitledInputField.&lt;lambda&gt;&gt;, input_field_is_editable=True)</span>
+<span>(</span><span>window_type, font, input_field_default_text, title_field_text, title_field_background_color='#000000', title_field_text_color='#ffffff', input_field_background_color='#ffffff', input_field_text_color='#000000', error_message_function=&lt;function TitledInputField.&lt;lambda&gt;&gt;, input_field_is_editable=True, grid_type=[None, 1])</span>
 </code></dt>
 <dd>
 <div class="desc"><p>An input field that is titled</p>
@@ -130,7 +130,7 @@ class TitledInputField(Dimensions):
 
     def __init__(self, window_type, font, input_field_default_text, title_field_text, title_field_background_color=black,
                  title_field_text_color=white, input_field_background_color=white, input_field_text_color=black,
-                 error_message_function=lambda text: None, input_field_is_editable=True):
+                 error_message_function=lambda text: None, input_field_is_editable=True, grid_type=GridType.VERTICAL):
 
         &#34;&#34;&#34;Initializes the object&#34;&#34;&#34;
 

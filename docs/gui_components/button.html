@@ -37,13 +37,18 @@ class Button(TkButton, Component):
     selected_color = None
     is_selected = False
     background_color = None
+    current_color = None
 
-    def __init__(self, window_type, text, font, background_color=white, text_color=black):
+    def __init__(self, window_type, text, font, background_color=pleasing_green, text_color=black, hover_color=dark_green):
         &#34;&#34;&#34;Initializes a button&#34;&#34;&#34;
 
         super().__init__(window_type, text=text, font=font, bg=background_color, fg=text_color)
+
         self.selected_color = background_color
         self.background_color = background_color
+        self.set_current_color(background_color)
+
+        self.set_hover_color(hover_color)
 
     def set_command(self, command):
         &#34;&#34;&#34;Sets the command that is called when the button is clicked (uses the one parameter tkinter config method)&#34;&#34;&#34;
@@ -56,6 +61,12 @@ class Button(TkButton, Component):
         self.configure(bg=background_color)
         self.background_color = background_color
 
+    def set_current_color(self, current_color):
+        &#34;&#34;&#34;Sets the color of the button when it is not selected&#34;&#34;&#34;
+
+        self.current_color = current_color
+        self.configure(bg=current_color)
+
     def set_text_color(self, text_color):
         &#34;&#34;&#34;Sets the color of the text of the button&#34;&#34;&#34;
 
@@ -65,7 +76,7 @@ class Button(TkButton, Component):
         &#34;&#34;&#34;Makes the button unselected&#34;&#34;&#34;
 
         self.is_selected = False
-        self.set_background_color(self.background_color)
+        self.set_current_color(self.background_color)
 
     def get_is_selected(self):
         &#34;&#34;&#34;Returns whether the button is selected&#34;&#34;&#34;
@@ -76,12 +87,18 @@ class Button(TkButton, Component):
         &#34;&#34;&#34;Makes the button selected&#34;&#34;&#34;
 
         self.is_selected = True
-        self.set_background_color(self.selected_color)
+        self.set_current_color(self.selected_color)
 
     def set_selected_color(self, selected_color):
         &#34;&#34;&#34;Sets the color of the button when it is selected&#34;&#34;&#34;
 
-        self.selected_color = selected_color</code></pre>
+        self.selected_color = selected_color
+
+    def set_hover_color(self, hover_color):
+        &#34;&#34;&#34;Sets the color of the button when it is hovered over&#34;&#34;&#34;
+
+        self.bind(&#34;&lt;Enter&gt;&#34;, lambda e: self.configure(bg=hover_color))
+        self.bind(&#34;&lt;Leave&gt;&#34;, lambda e: self.configure(bg=self.current_color))</code></pre>
 </details>
 </section>
 <section>
@@ -95,7 +112,7 @@ class Button(TkButton, Component):
 <dl>
 <dt id="tkinter_qu.gui_components.button.Button"><code class="flex name class">
 <span>class <span class="ident">Button</span></span>
-<span>(</span><span>window_type, text, font, background_color='#ffffff', text_color='#000000')</span>
+<span>(</span><span>window_type, text, font, background_color='#33b249', text_color='#000000', hover_color='#226400')</span>
 </code></dt>
 <dd>
 <div class="desc"><p>A button for any application (adds some helper methods from Component to an existing TkButton)</p>
@@ -110,13 +127,18 @@ class Button(TkButton, Component):
     selected_color = None
     is_selected = False
     background_color = None
+    current_color = None
 
-    def __init__(self, window_type, text, font, background_color=white, text_color=black):
+    def __init__(self, window_type, text, font, background_color=pleasing_green, text_color=black, hover_color=dark_green):
         &#34;&#34;&#34;Initializes a button&#34;&#34;&#34;
 
         super().__init__(window_type, text=text, font=font, bg=background_color, fg=text_color)
+
         self.selected_color = background_color
         self.background_color = background_color
+        self.set_current_color(background_color)
+
+        self.set_hover_color(hover_color)
 
     def set_command(self, command):
         &#34;&#34;&#34;Sets the command that is called when the button is clicked (uses the one parameter tkinter config method)&#34;&#34;&#34;
@@ -129,6 +151,12 @@ class Button(TkButton, Component):
         self.configure(bg=background_color)
         self.background_color = background_color
 
+    def set_current_color(self, current_color):
+        &#34;&#34;&#34;Sets the color of the button when it is not selected&#34;&#34;&#34;
+
+        self.current_color = current_color
+        self.configure(bg=current_color)
+
     def set_text_color(self, text_color):
         &#34;&#34;&#34;Sets the color of the text of the button&#34;&#34;&#34;
 
@@ -138,7 +166,7 @@ class Button(TkButton, Component):
         &#34;&#34;&#34;Makes the button unselected&#34;&#34;&#34;
 
         self.is_selected = False
-        self.set_background_color(self.background_color)
+        self.set_current_color(self.background_color)
 
     def get_is_selected(self):
         &#34;&#34;&#34;Returns whether the button is selected&#34;&#34;&#34;
@@ -149,12 +177,18 @@ class Button(TkButton, Component):
         &#34;&#34;&#34;Makes the button selected&#34;&#34;&#34;
 
         self.is_selected = True
-        self.set_background_color(self.selected_color)
+        self.set_current_color(self.selected_color)
 
     def set_selected_color(self, selected_color):
         &#34;&#34;&#34;Sets the color of the button when it is selected&#34;&#34;&#34;
 
-        self.selected_color = selected_color</code></pre>
+        self.selected_color = selected_color
+
+    def set_hover_color(self, hover_color):
+        &#34;&#34;&#34;Sets the color of the button when it is hovered over&#34;&#34;&#34;
+
+        self.bind(&#34;&lt;Enter&gt;&#34;, lambda e: self.configure(bg=hover_color))
+        self.bind(&#34;&lt;Leave&gt;&#34;, lambda e: self.configure(bg=self.current_color))</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -171,6 +205,10 @@ class Button(TkButton, Component):
 <h3>Class variables</h3>
 <dl>
 <dt id="tkinter_qu.gui_components.button.Button.background_color"><code class="name">var <span class="ident">background_color</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="tkinter_qu.gui_components.button.Button.current_color"><code class="name">var <span class="ident">current_color</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -213,7 +251,7 @@ class Button(TkButton, Component):
     &#34;&#34;&#34;Makes the button selected&#34;&#34;&#34;
 
     self.is_selected = True
-    self.set_background_color(self.selected_color)</code></pre>
+    self.set_current_color(self.selected_color)</code></pre>
 </details>
 </dd>
 <dt id="tkinter_qu.gui_components.button.Button.set_background_color"><code class="name flex">
@@ -245,6 +283,38 @@ class Button(TkButton, Component):
     &#34;&#34;&#34;Sets the command that is called when the button is clicked (uses the one parameter tkinter config method)&#34;&#34;&#34;
 
     self.configure(command=command)</code></pre>
+</details>
+</dd>
+<dt id="tkinter_qu.gui_components.button.Button.set_current_color"><code class="name flex">
+<span>def <span class="ident">set_current_color</span></span>(<span>self, current_color)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the color of the button when it is not selected</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_current_color(self, current_color):
+    &#34;&#34;&#34;Sets the color of the button when it is not selected&#34;&#34;&#34;
+
+    self.current_color = current_color
+    self.configure(bg=current_color)</code></pre>
+</details>
+</dd>
+<dt id="tkinter_qu.gui_components.button.Button.set_hover_color"><code class="name flex">
+<span>def <span class="ident">set_hover_color</span></span>(<span>self, hover_color)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the color of the button when it is hovered over</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_hover_color(self, hover_color):
+    &#34;&#34;&#34;Sets the color of the button when it is hovered over&#34;&#34;&#34;
+
+    self.bind(&#34;&lt;Enter&gt;&#34;, lambda e: self.configure(bg=hover_color))
+    self.bind(&#34;&lt;Leave&gt;&#34;, lambda e: self.configure(bg=self.current_color))</code></pre>
 </details>
 </dd>
 <dt id="tkinter_qu.gui_components.button.Button.set_selected_color"><code class="name flex">
@@ -290,7 +360,7 @@ class Button(TkButton, Component):
     &#34;&#34;&#34;Makes the button unselected&#34;&#34;&#34;
 
     self.is_selected = False
-    self.set_background_color(self.background_color)</code></pre>
+    self.set_current_color(self.background_color)</code></pre>
 </details>
 </dd>
 </dl>
@@ -304,6 +374,7 @@ class Button(TkButton, Component):
 <li><code><a title="tkinter_qu.gui_components.component.Component.horizontal_midpoint" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.horizontal_midpoint">horizontal_midpoint</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.number_set_dimensions" href="component.html#tkinter_qu.gui_components.component.Component.number_set_dimensions">number_set_dimensions</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.percentage_set_dimensions" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.place" href="component.html#tkinter_qu.gui_components.component.Component.place">place</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.right_edge" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.right_edge">right_edge</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.set_dimensions_within_component" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.set_dimensions_within_component">set_dimensions_within_component</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.show" href="component.html#tkinter_qu.gui_components.component.Component.show">show</a></code></li>
@@ -332,12 +403,15 @@ class Button(TkButton, Component):
 <h4><code><a title="tkinter_qu.gui_components.button.Button" href="#tkinter_qu.gui_components.button.Button">Button</a></code></h4>
 <ul class="">
 <li><code><a title="tkinter_qu.gui_components.button.Button.background_color" href="#tkinter_qu.gui_components.button.Button.background_color">background_color</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.button.Button.current_color" href="#tkinter_qu.gui_components.button.Button.current_color">current_color</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.button.Button.get_is_selected" href="#tkinter_qu.gui_components.button.Button.get_is_selected">get_is_selected</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.button.Button.is_selected" href="#tkinter_qu.gui_components.button.Button.is_selected">is_selected</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.button.Button.select" href="#tkinter_qu.gui_components.button.Button.select">select</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.button.Button.selected_color" href="#tkinter_qu.gui_components.button.Button.selected_color">selected_color</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.button.Button.set_background_color" href="#tkinter_qu.gui_components.button.Button.set_background_color">set_background_color</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.button.Button.set_command" href="#tkinter_qu.gui_components.button.Button.set_command">set_command</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.button.Button.set_current_color" href="#tkinter_qu.gui_components.button.Button.set_current_color">set_current_color</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.button.Button.set_hover_color" href="#tkinter_qu.gui_components.button.Button.set_hover_color">set_hover_color</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.button.Button.set_selected_color" href="#tkinter_qu.gui_components.button.Button.set_selected_color">set_selected_color</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.button.Button.set_text_color" href="#tkinter_qu.gui_components.button.Button.set_text_color">set_text_color</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.button.Button.unselect" href="#tkinter_qu.gui_components.button.Button.unselect">unselect</a></code></li>

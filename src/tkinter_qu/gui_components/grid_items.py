@@ -7,8 +7,8 @@ class GridType:
     """Holds all the types of grids that can be used"""
 
     # The order of the items follows this structure: [grid_rows, grid_columns]
-    VERTICAL = [1, None]
-    HORIZONTAL = [None, 1]
+    VERTICAL = [None, 1]
+    HORIZONTAL = [1, None]
 
 
 class GridItems(Component):

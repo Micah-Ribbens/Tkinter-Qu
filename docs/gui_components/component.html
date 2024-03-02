@@ -49,14 +49,27 @@ class Component(tkinter.Widget, Dimensions):
         &#34;&#34;&#34;Shows the component, so it is rendered again&#34;&#34;&#34;
 
         if self.saved_place_info is not None:
-            self.place(**self.saved_place_info)
+            super().place(**self.saved_place_info)
             self.is_currently_hidden = False
 
     def number_set_dimensions(self, left_edge, top_edge, length, height):
         &#34;&#34;&#34;Sets the dimensions of the component with the numbers provided&#34;&#34;&#34;
 
         super().number_set_dimensions(left_edge, top_edge, length, height)
-        self.place(x=int(left_edge), y=int(top_edge), width=int(length), height=int(height))</code></pre>
+        super().place(x=int(left_edge), y=int(top_edge), width=int(length), height=int(height))
+
+    def place(self, **kwargs):
+        &#34;&#34;&#34;Calls the tkinter.Widget place function&#34;&#34;&#34;
+
+        self.number_set_dimensions(kwargs.get(&#34;x&#34;), kwargs.get(&#34;y&#34;), kwargs.get(&#34;width&#34;), kwargs.get(&#34;height&#34;))
+
+        # Do not want to call the place function with the x, y, width, and height values
+        removed_keys = [&#34;x&#34;, &#34;y&#34;, &#34;width&#34;, &#34;height&#34;]
+        new_kwargs = {}
+
+        for key in kwargs.keys():
+            if not removed_keys.__contains__(key):
+                new_kwargs[key] = kwargs.get(key)</code></pre>
 </details>
 </section>
 <section>
@@ -98,14 +111,27 @@ and appropriate options.</p></div>
         &#34;&#34;&#34;Shows the component, so it is rendered again&#34;&#34;&#34;
 
         if self.saved_place_info is not None:
-            self.place(**self.saved_place_info)
+            super().place(**self.saved_place_info)
             self.is_currently_hidden = False
 
     def number_set_dimensions(self, left_edge, top_edge, length, height):
         &#34;&#34;&#34;Sets the dimensions of the component with the numbers provided&#34;&#34;&#34;
 
         super().number_set_dimensions(left_edge, top_edge, length, height)
-        self.place(x=int(left_edge), y=int(top_edge), width=int(length), height=int(height))</code></pre>
+        super().place(x=int(left_edge), y=int(top_edge), width=int(length), height=int(height))
+
+    def place(self, **kwargs):
+        &#34;&#34;&#34;Calls the tkinter.Widget place function&#34;&#34;&#34;
+
+        self.number_set_dimensions(kwargs.get(&#34;x&#34;), kwargs.get(&#34;y&#34;), kwargs.get(&#34;width&#34;), kwargs.get(&#34;height&#34;))
+
+        # Do not want to call the place function with the x, y, width, and height values
+        removed_keys = [&#34;x&#34;, &#34;y&#34;, &#34;width&#34;, &#34;height&#34;]
+        new_kwargs = {}
+
+        for key in kwargs.keys():
+            if not removed_keys.__contains__(key):
+                new_kwargs[key] = kwargs.get(key)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -172,7 +198,30 @@ and appropriate options.</p></div>
     &#34;&#34;&#34;Sets the dimensions of the component with the numbers provided&#34;&#34;&#34;
 
     super().number_set_dimensions(left_edge, top_edge, length, height)
-    self.place(x=int(left_edge), y=int(top_edge), width=int(length), height=int(height))</code></pre>
+    super().place(x=int(left_edge), y=int(top_edge), width=int(length), height=int(height))</code></pre>
+</details>
+</dd>
+<dt id="tkinter_qu.gui_components.component.Component.place"><code class="name flex">
+<span>def <span class="ident">place</span></span>(<span>self, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calls the tkinter.Widget place function</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def place(self, **kwargs):
+    &#34;&#34;&#34;Calls the tkinter.Widget place function&#34;&#34;&#34;
+
+    self.number_set_dimensions(kwargs.get(&#34;x&#34;), kwargs.get(&#34;y&#34;), kwargs.get(&#34;width&#34;), kwargs.get(&#34;height&#34;))
+
+    # Do not want to call the place function with the x, y, width, and height values
+    removed_keys = [&#34;x&#34;, &#34;y&#34;, &#34;width&#34;, &#34;height&#34;]
+    new_kwargs = {}
+
+    for key in kwargs.keys():
+        if not removed_keys.__contains__(key):
+            new_kwargs[key] = kwargs.get(key)</code></pre>
 </details>
 </dd>
 <dt id="tkinter_qu.gui_components.component.Component.show"><code class="name flex">
@@ -188,7 +237,7 @@ and appropriate options.</p></div>
     &#34;&#34;&#34;Shows the component, so it is rendered again&#34;&#34;&#34;
 
     if self.saved_place_info is not None:
-        self.place(**self.saved_place_info)
+        super().place(**self.saved_place_info)
         self.is_currently_hidden = False</code></pre>
 </details>
 </dd>
@@ -230,6 +279,7 @@ and appropriate options.</p></div>
 <li><code><a title="tkinter_qu.gui_components.component.Component.hide" href="#tkinter_qu.gui_components.component.Component.hide">hide</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.is_currently_hidden" href="#tkinter_qu.gui_components.component.Component.is_currently_hidden">is_currently_hidden</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.number_set_dimensions" href="#tkinter_qu.gui_components.component.Component.number_set_dimensions">number_set_dimensions</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.place" href="#tkinter_qu.gui_components.component.Component.place">place</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.saved_place_info" href="#tkinter_qu.gui_components.component.Component.saved_place_info">saved_place_info</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.show" href="#tkinter_qu.gui_components.component.Component.show">show</a></code></li>
 </ul>
