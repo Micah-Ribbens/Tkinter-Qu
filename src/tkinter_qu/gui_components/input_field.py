@@ -27,6 +27,8 @@ class InputField(tkinter.Text, Component):
     text_color = None
     background_color = None
 
+    get_value_function = lambda x: x  # The get value function by default returns the same value that was inputted
+
     def __init__(self, window_type, font, default_text, is_editable=True, text_color=black, background_color=white,
                  error_message_function=lambda text: None, name=""):
 
@@ -57,6 +59,13 @@ class InputField(tkinter.Text, Component):
 
     def get_text(self):
         return self.get("1.0", tkinter.END).rstrip("\n")
+
+    def get_value(self):
+        """
+            Returns:
+                object: the value of the input field's text - get_value_function(get_text())"""
+
+        return self.get_value_function(self.get_text())
 
     def set_is_selected(self, is_selected):
         self.is_selected = is_selected

@@ -50,6 +50,11 @@ class Grid(Dimensions):
         rows, columns = self.rows, self.columns
         number_of_items = len(items)
 
+        # If there are no items, then nothing can be turned into a grid
+        if number_of_items:
+            print("WARNING: the length of items was 0 for the Grid.turn_into_grid() method")
+            return
+
         if rows is None:
             rows = self.get_grid_dimension(columns, number_of_items)
 

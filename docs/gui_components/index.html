@@ -30,7 +30,31 @@ feature on top of the base tkinter component</p>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">&#34;&#34;&#34;This module holds all the GUI components of the application. Most of the GUI components just have one some additional
-feature on top of the base tkinter component&#34;&#34;&#34;</code></pre>
+feature on top of the base tkinter component&#34;&#34;&#34;
+
+def get_float_value(text):
+    &#34;&#34;&#34;
+        Returns:
+            float: the value of text as a float&#34;&#34;&#34;
+
+    return float(text)
+
+
+def get_int_value(text):
+    &#34;&#34;&#34;
+        Returns:
+            int: the value of text as an integer&#34;&#34;&#34;
+
+    return int(text)
+
+
+def get_csv_text(text: str, value_to_object=lambda x: x):
+    &#34;&#34;&#34;
+        Returns:
+            list[str]: each value of the text. The value in question is value_to_object(csv_value)&#34;&#34;&#34;
+
+    values = text.split(&#34;, &#34;)
+    return [value_to_object(x) for x in values]</code></pre>
 </details>
 </section>
 <section>
@@ -85,6 +109,73 @@ feature on top of the base tkinter component&#34;&#34;&#34;</code></pre>
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="tkinter_qu.gui_components.get_csv_text"><code class="name flex">
+<span>def <span class="ident">get_csv_text</span></span>(<span>text: str, value_to_object=&lt;function &lt;lambda&gt;&gt;)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[str]</code></dt>
+<dd>each value of the text. The value in question is value_to_object(csv_value)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_csv_text(text: str, value_to_object=lambda x: x):
+    &#34;&#34;&#34;
+        Returns:
+            list[str]: each value of the text. The value in question is value_to_object(csv_value)&#34;&#34;&#34;
+
+    values = text.split(&#34;, &#34;)
+    return [value_to_object(x) for x in values]</code></pre>
+</details>
+</dd>
+<dt id="tkinter_qu.gui_components.get_float_value"><code class="name flex">
+<span>def <span class="ident">get_float_value</span></span>(<span>text)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>the value of text as a float</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_float_value(text):
+    &#34;&#34;&#34;
+        Returns:
+            float: the value of text as a float&#34;&#34;&#34;
+
+    return float(text)</code></pre>
+</details>
+</dd>
+<dt id="tkinter_qu.gui_components.get_int_value"><code class="name flex">
+<span>def <span class="ident">get_int_value</span></span>(<span>text)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>the value of text as an integer</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_int_value(text):
+    &#34;&#34;&#34;
+        Returns:
+            int: the value of text as an integer&#34;&#34;&#34;
+
+    return int(text)</code></pre>
+</details>
+</dd>
+</dl>
 </section>
 <section>
 </section>
@@ -113,6 +204,13 @@ feature on top of the base tkinter component&#34;&#34;&#34;</code></pre>
 <li><code><a title="tkinter_qu.gui_components.pages" href="pages.html">tkinter_qu.gui_components.pages</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.titled_input_field" href="titled_input_field.html">tkinter_qu.gui_components.titled_input_field</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.vim_grid" href="vim_grid.html">tkinter_qu.gui_components.vim_grid</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="tkinter_qu.gui_components.get_csv_text" href="#tkinter_qu.gui_components.get_csv_text">get_csv_text</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.get_float_value" href="#tkinter_qu.gui_components.get_float_value">get_float_value</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.get_int_value" href="#tkinter_qu.gui_components.get_int_value">get_int_value</a></code></li>
 </ul>
 </li>
 </ul>

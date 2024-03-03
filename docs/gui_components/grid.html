@@ -78,6 +78,11 @@ class Grid(Dimensions):
         rows, columns = self.rows, self.columns
         number_of_items = len(items)
 
+        # If there are no items, then nothing can be turned into a grid
+        if number_of_items:
+            print(&#34;WARNING: the length of items was 0 for the Grid.turn_into_grid() method&#34;)
+            return
+
         if rows is None:
             rows = self.get_grid_dimension(columns, number_of_items)
 
@@ -234,6 +239,11 @@ class Grid(Dimensions):
 
         rows, columns = self.rows, self.columns
         number_of_items = len(items)
+
+        # If there are no items, then nothing can be turned into a grid
+        if number_of_items:
+            print(&#34;WARNING: the length of items was 0 for the Grid.turn_into_grid() method&#34;)
+            return
 
         if rows is None:
             rows = self.get_grid_dimension(columns, number_of_items)
@@ -505,6 +515,11 @@ class Grid(Dimensions):
     rows, columns = self.rows, self.columns
     number_of_items = len(items)
 
+    # If there are no items, then nothing can be turned into a grid
+    if number_of_items:
+        print(&#34;WARNING: the length of items was 0 for the Grid.turn_into_grid() method&#34;)
+        return
+
     if rows is None:
         rows = self.get_grid_dimension(columns, number_of_items)
 
@@ -539,6 +554,7 @@ class Grid(Dimensions):
 <li><code><b><a title="tkinter_qu.gui_components.dimensions.Dimensions" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions">Dimensions</a></b></code>:
 <ul class="hlist">
 <li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.bottom_edge" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.bottom_edge">bottom_edge</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.get_dimensions" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.get_dimensions">get_dimensions</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.get_values" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.get_values">get_values</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.horizontal_midpoint" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.horizontal_midpoint">horizontal_midpoint</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.number_set_dimensions" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.number_set_dimensions">number_set_dimensions</a></code></li>

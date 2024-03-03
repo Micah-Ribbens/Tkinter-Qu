@@ -80,6 +80,14 @@ class Dimensions:
     def set_length(self, value):
         self.number_set_dimensions(self.left_edge, self.top_edge, value, self.height)
 
+    def get_dimensions(self):
+        """"
+            Returns:
+                list[float]: {left_edge, top_edge, length, height}"""
+
+        return [self.left_edge, self.top_edge, self.length, self.height]
+
+
     @property
     def right_edge(self):
         """The left_edge + length is what constitutes the object's right_edge"""

@@ -26,7 +26,8 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from tkinter_qu.gui_components.dimensions import Dimensions
+<pre><code class="python">from tkinter_qu.base.important_variables import SCREEN_LENGTH, SCREEN_HEIGHT
+from tkinter_qu.gui_components.dimensions import Dimensions
 from tkinter_qu.gui_components.grid import Grid
 from tkinter_qu.gui_components.component import Component
 
@@ -50,11 +51,43 @@ class GridItems(Component):
         self.items = items
         self.grid = Grid(Dimensions.get_zero(), *grid_type)
 
-    def number_set_dimensions(self, left_edge, top_edge, length, height):
+    def number_set_dimensions(self, left_edge, top_edge, length, height, update_grid=True):
         &#34;&#34;&#34;Places all the items at that location in a grid format&#34;&#34;&#34;
 
         self.grid.number_set_dimensions(left_edge, top_edge, length, height)
-        self.grid.turn_into_grid(self.items, None, None)</code></pre>
+
+        if update_grid:
+            self.grid.turn_into_grid(self.items, None, None)
+
+    def percentage_set_dimensions(self, percent_right, percent_down, percent_length, percent_height,
+                                  horizontal_number=SCREEN_LENGTH, vertical_number=SCREEN_HEIGHT, update_grid=True):
+        &#34;&#34;&#34; Sets the dimensions based on the values passed into this function
+
+            Args:
+                percent_right (int): the percent it is to right (percentage of horizontal_number)
+                percent_down (int): the percent it is down (percentage of horizontal_number)
+                percent_length (int): the length (percentage of vertical_number)
+                percent_height (int): the height (percentage of vertical_number)
+                horizontal_number (int): what percent_right and percent_length are percentages of
+                vertical_number (int): what percent_down and percent_height are percentages of
+                update_grid (bool): whether this class&#39;s items are turned into a grid
+
+            Returns:
+                None
+        &#34;&#34;&#34;
+
+        left_edge = horizontal_number * percent_right / 100
+        length = horizontal_number * percent_length / 100
+        top_edge = vertical_number * percent_down / 100
+        height = vertical_number * percent_height / 100
+
+        self.number_set_dimensions(left_edge, top_edge, length, height, update_grid)
+
+    def set_items(self, items):
+        &#34;&#34;&#34;Sets the items of the grid&#34;&#34;&#34;
+
+        self.items = items
+        self.number_set_dimensions(*self.get_values())</code></pre>
 </details>
 </section>
 <section>
@@ -88,11 +121,43 @@ class GridItems(Component):
         self.items = items
         self.grid = Grid(Dimensions.get_zero(), *grid_type)
 
-    def number_set_dimensions(self, left_edge, top_edge, length, height):
+    def number_set_dimensions(self, left_edge, top_edge, length, height, update_grid=True):
         &#34;&#34;&#34;Places all the items at that location in a grid format&#34;&#34;&#34;
 
         self.grid.number_set_dimensions(left_edge, top_edge, length, height)
-        self.grid.turn_into_grid(self.items, None, None)</code></pre>
+
+        if update_grid:
+            self.grid.turn_into_grid(self.items, None, None)
+
+    def percentage_set_dimensions(self, percent_right, percent_down, percent_length, percent_height,
+                                  horizontal_number=SCREEN_LENGTH, vertical_number=SCREEN_HEIGHT, update_grid=True):
+        &#34;&#34;&#34; Sets the dimensions based on the values passed into this function
+
+            Args:
+                percent_right (int): the percent it is to right (percentage of horizontal_number)
+                percent_down (int): the percent it is down (percentage of horizontal_number)
+                percent_length (int): the length (percentage of vertical_number)
+                percent_height (int): the height (percentage of vertical_number)
+                horizontal_number (int): what percent_right and percent_length are percentages of
+                vertical_number (int): what percent_down and percent_height are percentages of
+                update_grid (bool): whether this class&#39;s items are turned into a grid
+
+            Returns:
+                None
+        &#34;&#34;&#34;
+
+        left_edge = horizontal_number * percent_right / 100
+        length = horizontal_number * percent_length / 100
+        top_edge = vertical_number * percent_down / 100
+        height = vertical_number * percent_height / 100
+
+        self.number_set_dimensions(left_edge, top_edge, length, height, update_grid)
+
+    def set_items(self, items):
+        &#34;&#34;&#34;Sets the items of the grid&#34;&#34;&#34;
+
+        self.items = items
+        self.number_set_dimensions(*self.get_values())</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -115,7 +180,7 @@ class GridItems(Component):
 <h3>Methods</h3>
 <dl>
 <dt id="tkinter_qu.gui_components.grid_items.GridItems.number_set_dimensions"><code class="name flex">
-<span>def <span class="ident">number_set_dimensions</span></span>(<span>self, left_edge, top_edge, length, height)</span>
+<span>def <span class="ident">number_set_dimensions</span></span>(<span>self, left_edge, top_edge, length, height, update_grid=True)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Places all the items at that location in a grid format</p></div>
@@ -123,11 +188,82 @@ class GridItems(Component):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def number_set_dimensions(self, left_edge, top_edge, length, height):
+<pre><code class="python">def number_set_dimensions(self, left_edge, top_edge, length, height, update_grid=True):
     &#34;&#34;&#34;Places all the items at that location in a grid format&#34;&#34;&#34;
 
     self.grid.number_set_dimensions(left_edge, top_edge, length, height)
-    self.grid.turn_into_grid(self.items, None, None)</code></pre>
+
+    if update_grid:
+        self.grid.turn_into_grid(self.items, None, None)</code></pre>
+</details>
+</dd>
+<dt id="tkinter_qu.gui_components.grid_items.GridItems.percentage_set_dimensions"><code class="name flex">
+<span>def <span class="ident">percentage_set_dimensions</span></span>(<span>self, percent_right, percent_down, percent_length, percent_height, horizontal_number=1100, vertical_number=650, update_grid=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the dimensions based on the values passed into this function</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>percent_right</code></strong> :&ensp;<code>int</code></dt>
+<dd>the percent it is to right (percentage of horizontal_number)</dd>
+<dt><strong><code>percent_down</code></strong> :&ensp;<code>int</code></dt>
+<dd>the percent it is down (percentage of horizontal_number)</dd>
+<dt><strong><code>percent_length</code></strong> :&ensp;<code>int</code></dt>
+<dd>the length (percentage of vertical_number)</dd>
+<dt><strong><code>percent_height</code></strong> :&ensp;<code>int</code></dt>
+<dd>the height (percentage of vertical_number)</dd>
+<dt><strong><code>horizontal_number</code></strong> :&ensp;<code>int</code></dt>
+<dd>what percent_right and percent_length are percentages of</dd>
+<dt><strong><code>vertical_number</code></strong> :&ensp;<code>int</code></dt>
+<dd>what percent_down and percent_height are percentages of</dd>
+<dt><strong><code>update_grid</code></strong> :&ensp;<code>bool</code></dt>
+<dd>whether this class's items are turned into a grid</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def percentage_set_dimensions(self, percent_right, percent_down, percent_length, percent_height,
+                              horizontal_number=SCREEN_LENGTH, vertical_number=SCREEN_HEIGHT, update_grid=True):
+    &#34;&#34;&#34; Sets the dimensions based on the values passed into this function
+
+        Args:
+            percent_right (int): the percent it is to right (percentage of horizontal_number)
+            percent_down (int): the percent it is down (percentage of horizontal_number)
+            percent_length (int): the length (percentage of vertical_number)
+            percent_height (int): the height (percentage of vertical_number)
+            horizontal_number (int): what percent_right and percent_length are percentages of
+            vertical_number (int): what percent_down and percent_height are percentages of
+            update_grid (bool): whether this class&#39;s items are turned into a grid
+
+        Returns:
+            None
+    &#34;&#34;&#34;
+
+    left_edge = horizontal_number * percent_right / 100
+    length = horizontal_number * percent_length / 100
+    top_edge = vertical_number * percent_down / 100
+    height = vertical_number * percent_height / 100
+
+    self.number_set_dimensions(left_edge, top_edge, length, height, update_grid)</code></pre>
+</details>
+</dd>
+<dt id="tkinter_qu.gui_components.grid_items.GridItems.set_items"><code class="name flex">
+<span>def <span class="ident">set_items</span></span>(<span>self, items)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the items of the grid</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_items(self, items):
+    &#34;&#34;&#34;Sets the items of the grid&#34;&#34;&#34;
+
+    self.items = items
+    self.number_set_dimensions(*self.get_values())</code></pre>
 </details>
 </dd>
 </dl>
@@ -136,10 +272,10 @@ class GridItems(Component):
 <li><code><b><a title="tkinter_qu.gui_components.component.Component" href="component.html#tkinter_qu.gui_components.component.Component">Component</a></b></code>:
 <ul class="hlist">
 <li><code><a title="tkinter_qu.gui_components.component.Component.bottom_edge" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.bottom_edge">bottom_edge</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.component.Component.get_dimensions" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.get_dimensions">get_dimensions</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.get_values" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.get_values">get_values</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.hide" href="component.html#tkinter_qu.gui_components.component.Component.hide">hide</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.horizontal_midpoint" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.horizontal_midpoint">horizontal_midpoint</a></code></li>
-<li><code><a title="tkinter_qu.gui_components.component.Component.percentage_set_dimensions" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.place" href="component.html#tkinter_qu.gui_components.component.Component.place">place</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.right_edge" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.right_edge">right_edge</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.component.Component.set_dimensions_within_component" href="dimensions.html#tkinter_qu.gui_components.dimensions.Dimensions.set_dimensions_within_component">set_dimensions_within_component</a></code></li>
@@ -198,6 +334,8 @@ class GridItems(Component):
 <ul class="">
 <li><code><a title="tkinter_qu.gui_components.grid_items.GridItems.items" href="#tkinter_qu.gui_components.grid_items.GridItems.items">items</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.grid_items.GridItems.number_set_dimensions" href="#tkinter_qu.gui_components.grid_items.GridItems.number_set_dimensions">number_set_dimensions</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.grid_items.GridItems.percentage_set_dimensions" href="#tkinter_qu.gui_components.grid_items.GridItems.percentage_set_dimensions">percentage_set_dimensions</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.grid_items.GridItems.set_items" href="#tkinter_qu.gui_components.grid_items.GridItems.set_items">set_items</a></code></li>
 </ul>
 </li>
 <li>

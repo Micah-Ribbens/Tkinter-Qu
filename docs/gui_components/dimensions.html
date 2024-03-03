@@ -108,6 +108,14 @@ class Dimensions:
     def set_length(self, value):
         self.number_set_dimensions(self.left_edge, self.top_edge, value, self.height)
 
+    def get_dimensions(self):
+        &#34;&#34;&#34;&#34;
+            Returns:
+                list[float]: {left_edge, top_edge, length, height}&#34;&#34;&#34;
+
+        return [self.left_edge, self.top_edge, self.length, self.height]
+
+
     @property
     def right_edge(self):
         &#34;&#34;&#34;The left_edge + length is what constitutes the object&#39;s right_edge&#34;&#34;&#34;
@@ -236,6 +244,14 @@ right_edge, bottom_edge, horizontal_midpoint, and vertical_midpoint</p>
 
     def set_length(self, value):
         self.number_set_dimensions(self.left_edge, self.top_edge, value, self.height)
+
+    def get_dimensions(self):
+        &#34;&#34;&#34;&#34;
+            Returns:
+                list[float]: {left_edge, top_edge, length, height}&#34;&#34;&#34;
+
+        return [self.left_edge, self.top_edge, self.length, self.height]
+
 
     @property
     def right_edge(self):
@@ -371,6 +387,28 @@ def vertical_midpoint(self):
 </dl>
 <h3>Methods</h3>
 <dl>
+<dt id="tkinter_qu.gui_components.dimensions.Dimensions.get_dimensions"><code class="name flex">
+<span>def <span class="ident">get_dimensions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>"</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[float]</code></dt>
+<dd>{left_edge, top_edge, length, height}</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dimensions(self):
+    &#34;&#34;&#34;&#34;
+        Returns:
+            list[float]: {left_edge, top_edge, length, height}&#34;&#34;&#34;
+
+    return [self.left_edge, self.top_edge, self.length, self.height]</code></pre>
+</details>
+</dd>
 <dt id="tkinter_qu.gui_components.dimensions.Dimensions.get_values"><code class="name flex">
 <span>def <span class="ident">get_values</span></span>(<span>self)</span>
 </code></dt>
@@ -580,6 +618,7 @@ to the provided 'component.' For instance, percent_length is a percentage of com
 <h4><code><a title="tkinter_qu.gui_components.dimensions.Dimensions" href="#tkinter_qu.gui_components.dimensions.Dimensions">Dimensions</a></code></h4>
 <ul class="">
 <li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.bottom_edge" href="#tkinter_qu.gui_components.dimensions.Dimensions.bottom_edge">bottom_edge</a></code></li>
+<li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.get_dimensions" href="#tkinter_qu.gui_components.dimensions.Dimensions.get_dimensions">get_dimensions</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.get_values" href="#tkinter_qu.gui_components.dimensions.Dimensions.get_values">get_values</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.get_zero" href="#tkinter_qu.gui_components.dimensions.Dimensions.get_zero">get_zero</a></code></li>
 <li><code><a title="tkinter_qu.gui_components.dimensions.Dimensions.height" href="#tkinter_qu.gui_components.dimensions.Dimensions.height">height</a></code></li>
