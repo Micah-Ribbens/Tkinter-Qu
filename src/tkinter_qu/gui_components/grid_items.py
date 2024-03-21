@@ -26,6 +26,7 @@ class GridItems(Component):
     def number_set_dimensions(self, left_edge, top_edge, length, height, update_grid=True):
         """Places all the items at that location in a grid format"""
 
+        Dimensions.number_set_dimensions(self, left_edge, top_edge, length, height)
         self.grid.number_set_dimensions(left_edge, top_edge, length, height)
 
         if update_grid:

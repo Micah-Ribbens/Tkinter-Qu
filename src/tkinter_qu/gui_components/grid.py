@@ -51,7 +51,7 @@ class Grid(Dimensions):
         number_of_items = len(items)
 
         # If there are no items, then nothing can be turned into a grid
-        if number_of_items:
+        if number_of_items == 0:
             print("WARNING: the length of items was 0 for the Grid.turn_into_grid() method")
             return
 

@@ -1,0 +1,1 @@
+"""This module contains different ways to layout GUI components. A vertical stack layout, horizontal stack layout, etc."""
